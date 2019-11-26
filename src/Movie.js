@@ -2,18 +2,19 @@ import React from 'react';
 import './Movie.css';
 
 
-function Movie() {
+function Movie(props) {
+  console.log(props);
   return (
-    <div>
-        <MoviePoster />
-        <h1>hello this is a Movie</h1>
+    <div title="hi">
+        <MoviePoster poster={props.poster}/>
+        <h1>{props.title}</h1>
     </div>
   );
 }
 
-function MoviePoster() {
+function MoviePoster(props) {
     return (
-        <img src="https://t1.daumcdn.net/cfile/tistory/153C003D4F6EED983A" />
+        <img className="posterImg" src={props.poster} />
     );
 }   
 export default Movie;
