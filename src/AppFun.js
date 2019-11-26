@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Movie from './Movie';
 import './App.css';
 
@@ -18,31 +18,23 @@ const movies = [
 ]
 
 
-class App extends React.Component {
+function App(state) {
 
   state = {
     greeting : "Hello"  
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      // state를 직접 수정하지 않는다
-      // ex. state.greeting = "bonjour"
-      this.setState({
-        greeting : "hello again!"
-      })
-    }, 2000)
-  }
-  render() {
-    return (
-      <div className="App">
-       {this.state.greeting}
-       {movies.map( (movie, index) => {
+
+
+  return (
+    <div className="App">
+      {state.greeting}
+      {movies.map( (movie, index) => {
         return <Movie title={movie.title} poster={movie.poster} key={index} />
       })}
-      </div>
-      );
-    }
+    </div>
+  );
 }
+
 export default App;
 
