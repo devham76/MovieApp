@@ -2,26 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import './Movie.css';
 
-// 제목은 반드시 문자열임을 지정해준다.
-Movie.propTypes = {
+
+Movie.proptype = {
   title: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired
 }
-function Movie(props) {
+function Movie({ title, poster }) {
   return (
     <div>
-        <MoviePoster poster={props.poster}/>
-        <h1>{props.title}</h1>
+      <MoviePoster poster={poster} />
+      <h1>{title}</h1>
     </div>
-  );
+  )
 }
 
 MoviePoster.prototype = {
-  poster : PropTypes.string.isRequired
+  poster: PropTypes.string.isRequired
 }
-function MoviePoster(props) {
-    return (
-        <img className="posterImg" src={props.poster} />
-    );
-}   
+function MoviePoster({ poster }) {
+  return (
+    <img className="posterImg" src={poster} alt="poster" />
+  )
+}
+
 export default Movie;
